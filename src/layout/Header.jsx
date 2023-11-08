@@ -11,7 +11,7 @@ export const Header = () => {
             <header>
                 <Container>
                     <Navbar expand="lg" className="navbar navbar-expand-lg navbar-light shadow-5-strong">
-                        <Link to={'/home'}>  <Navbar.Brand className='logo-div' >  <img className='logo' src="/public/images/logo2.png" alt="atodogas logo" />
+                        <Link to={'/home'}>  <Navbar.Brand className='logo-div' >  <img className='logo' src="https://i.postimg.cc/rFyt6XqF/logo2.png" alt="atodogas logo" />
                         </Navbar.Brand>
                         </Link>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
