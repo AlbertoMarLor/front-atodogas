@@ -8,7 +8,14 @@ import FormularioNew from './FormularioNew';
 export const BusinessList = () => {
 
     const [restaurants, setRestaurants] = useState([]);
-    const user = JSON.parse(localStorage.getItem("atodogasuser"))
+
+    let user;
+    if (localStorage.getItem("atodogasuser") !== null) {
+        user = JSON.parse(localStorage.getItem("atodogasuser"))
+
+    } else {
+        user.role = 'regular'
+    }
 
 
     const fetchData = async () => {

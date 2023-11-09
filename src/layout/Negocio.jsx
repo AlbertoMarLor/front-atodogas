@@ -10,7 +10,14 @@ export const Negocio = () => {
 
     const { idNegocio } = useParams();
     const [business, setBusiness] = useState({});
-    const user = JSON.parse(localStorage.getItem("atodogasuser"));
+
+    let user;
+    if (localStorage.getItem("atodogasuser") !== null) {
+        user = JSON.parse(localStorage.getItem("atodogasuser"))
+
+    } else {
+        user.role = 'regular'
+    }
 
 
     const fetchData = async () => {
