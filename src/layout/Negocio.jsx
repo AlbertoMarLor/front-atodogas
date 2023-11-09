@@ -24,7 +24,7 @@ export const Negocio = () => {
             method: 'DELETE'
         })
         await response.json();
-        //TODO no va el delete
+        //TODO no va el delete, a saber por que
     }
 
     useEffect(() => {
