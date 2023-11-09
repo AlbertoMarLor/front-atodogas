@@ -9,7 +9,7 @@ export const BusinessList = () => {
 
     const [restaurants, setRestaurants] = useState([]);
 
-    let user;
+    let user = {};
     if (localStorage.getItem("atodogasuser") !== null) {
         user = JSON.parse(localStorage.getItem("atodogasuser"))
 

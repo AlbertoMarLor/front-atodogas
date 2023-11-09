@@ -11,7 +11,7 @@ export const Negocio = () => {
     const { idNegocio } = useParams();
     const [business, setBusiness] = useState({});
 
-    let user;
+    let user = {};
     if (localStorage.getItem("atodogasuser") !== null) {
         user = JSON.parse(localStorage.getItem("atodogasuser"))
 
