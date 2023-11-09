@@ -5,7 +5,7 @@ import { Hero } from '../layout/Hero'
 import { Negocio } from '../layout/Negocio'
 import { FormularioRegister } from '../layout/FormularioRegister'
 import { FormularioLogin } from '../layout/FormularioLogin'
-import { AuthProvider } from '../context/authProvider'
+import { AuthProvider } from '../context/AuthProvider'
 
 export const Routing = () => {
     return (
