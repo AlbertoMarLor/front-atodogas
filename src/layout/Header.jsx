@@ -5,7 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 import { FaPhone } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 
+
 export const Header = () => {
+
+
+
     return (
         <div>
             <header>
@@ -17,8 +21,8 @@ export const Header = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto" style={{ fontFamily: "revert", fontWeight: "500", width: '75%' }}>
-                                <Nav.Link className='header-text' href="#home">REGISTRARSE</Nav.Link>
-                                <Nav.Link className='header-text' href="#link">INICIAR SESIÓN</Nav.Link>
+                                <Nav.Link as={Link} className='header-text' to={'/register'} >REGISTRARSE</Nav.Link>
+                                <Nav.Link as={Link} className='header-text' to={'/login'}>INICIAR SESIÓN</Nav.Link>
                                 <Nav.Link className='header-text' href="#link">CATEGORÍAS</Nav.Link>
                                 <Nav.Link className='header-text' href="#link"> <FaPhone /> 664320649</Nav.Link>
                             </Nav>

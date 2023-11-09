@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ModalForm from './Modal'
-import FormularioNew from './FormularioNew'
+import FormularioNew from './FormularioNew';
 
 
 export const BusinessList = () => {
 
     const [restaurants, setRestaurants] = useState([]);
+    const user = JSON.parse(localStorage.getItem("atodogasuser"))
+
 
     const fetchData = async () => {
         const response = await fetch("https://back-atodogas.onrender.com/api/restaurants");
@@ -24,12 +26,14 @@ export const BusinessList = () => {
         <>
             <Container>
                 <section className='hero-section'>
-                    <ModalForm
-                        color={"success"}
-                        title={"Nuevo negocio"}
-                        buttonText={"Nuevo"}
-                        formulario={<FormularioNew />}
-                    />
+                    {user.role === 'admin' &&
+                        <ModalForm
+                            color={"success"}
+                            title={"Nuevo negocio"}
+                            buttonText={"Nuevo"}
+                            formulario={<FormularioNew />}
+                        />}
+
                     <h2 className='hero-h2'>Restaurantes</h2>
                     <div className="article-grid">
                         {restaurants.map(restaurant => {

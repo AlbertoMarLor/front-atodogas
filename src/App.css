@@ -257,6 +257,14 @@ article img {
     margin: 0;
 }
 
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
 @media (min-width: 768px) {
     .article-grid {
         width: 75%;
