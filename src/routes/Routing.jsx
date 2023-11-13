@@ -6,6 +6,7 @@ import { Negocio } from '../layout/Negocio'
 import { FormularioRegister } from '../layout/FormularioRegister'
 import { FormularioLogin } from '../layout/FormularioLogin'
 import { AuthProvider } from '../context/AuthProvider'
+import { Join } from '../layout/Join'
 
 export const Routing = () => {
     return (
@@ -18,6 +19,7 @@ export const Routing = () => {
                     <Route path="/negocio/:idNegocio" element={<Negocio />} />
                     <Route path="/register" element={<FormularioRegister />} />
                     <Route path="/login" element={<FormularioLogin />} />
+                    <Route path="/join" element={<Join />} />
 
 
                 </Routes>

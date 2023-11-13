@@ -11,12 +11,49 @@ export const Negocio = () => {
     const { idNegocio } = useParams();
     const [business, setBusiness] = useState({});
 
+    useEffect(() => {
+        background(business.type);
+    }, [business])
+
+
     let user = {};
     if (localStorage.getItem("atodogasuser") !== null) {
         user = JSON.parse(localStorage.getItem("atodogasuser"))
 
     } else {
         user.role = 'regular'
+    }
+
+    const background = (type) => {
+        const backgroundDiv = document.getElementById("backGround");
+        let imageUrl;
+
+        switch (type) {
+            case 'italiana':
+                imageUrl = 'url(/src/assets/italiana.jpg)';
+                break;
+            case 'china':
+                imageUrl = 'url(/src/assets/china.jpg)';
+                break;
+            case 'mediterránea':
+                imageUrl = 'url(/src/assets/mediterranea.jpg)';
+                break;
+            case 'japonesa':
+                imageUrl = 'url(/src/assets/ramen.jpg)';
+                break;
+            case 'all':
+                imageUrl = 'url(/src/assets/all.jpg)';
+                break;
+            case 'no-type':
+                imageUrl = 'url(/src/assets/all.jpg)';
+                break;
+            default:
+                imageUrl = 'url(/src/assets/all.jpg)'
+        }
+
+
+        backgroundDiv.style.backgroundImage = imageUrl;
+
     }
 
 
@@ -40,9 +77,17 @@ export const Negocio = () => {
 
     return (
         <div>
-            <div className='hero-business'>
+            <div className='hero-business' id='backGround'>
                 <h2>{business.nombre}</h2>
-                <p>Comida {business.type}</p>
+                <p>
+                    {
+                        (business.type === 'all' || business.type === 'no-type') ?
+                            ''
+                            :
+                            `Comida ${business.type}`
+                    }
+
+                </p>
             </div>
 
             <div className="business-grid">

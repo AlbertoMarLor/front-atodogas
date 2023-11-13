@@ -21,7 +21,7 @@ export const FormularioRegister = () => {
         },
         onSubmit: async (values) => {
 
-            const request = await fetch('http://localhost:3000/api/users/', {
+            const request = await fetch('https://back-atodogas.onrender.com/api/users/', {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: {
@@ -32,7 +32,7 @@ export const FormularioRegister = () => {
             const data = await request.json();
 
             if (data.status === "success") {
-                const request = await fetch('http://localhost:3000/api/users/login', {
+                const request = await fetch('https://back-atodogas.onrender.com/api/users/login', {
                     method: "POST",
                     body: JSON.stringify({ email: values.email, password: values.password }),
                     headers: {

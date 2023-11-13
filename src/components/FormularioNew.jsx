@@ -12,7 +12,7 @@ function FormularioNew() {
         },
         onSubmit: async (values, { resetForm }) => {
 
-            const data = await fetch('http://localhost:3000/api/restaurants/', {
+            const data = await fetch('https://back-atodogas.onrender.com/api/restaurants/', {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: {
