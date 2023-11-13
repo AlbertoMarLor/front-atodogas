@@ -19,7 +19,7 @@ export const BusinessList = () => {
 
 
     const fetchData = async () => {
-        const response = await fetch("https://back-atodogas.onrender.com/api/restaurants");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants`);
         const data = await response.json();
         setRestaurants(data.data)
     }

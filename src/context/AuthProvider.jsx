@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
         const userObj = JSON.parse(user)
         const userId = userObj.id;
 
-        const request = await fetch(`https://back-atodogas.onrender.com/api/users/${userId}`, {
+        const request = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/users/${userId}`, {
             method: "GET",
             headers: {
                 "Authorization": token

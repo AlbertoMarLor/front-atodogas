@@ -13,7 +13,7 @@ function FormularioEdit({ business }) {
         },
         onSubmit: async (values) => {
 
-            await fetch('https://back-atodogas.onrender.com/api/restaurants/' + business._id, {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/` + business._id, {
                 method: "PUT",
                 body: JSON.stringify(values),
                 headers: {

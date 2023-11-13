@@ -12,7 +12,7 @@ function FormularioNew() {
         },
         onSubmit: async (values, { resetForm }) => {
 
-            const data = await fetch('https://back-atodogas.onrender.com/api/restaurants/', {
+            const data = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/`, {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: {

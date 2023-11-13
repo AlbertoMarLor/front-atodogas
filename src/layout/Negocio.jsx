@@ -30,25 +30,25 @@ export const Negocio = () => {
 
         switch (type) {
             case 'italiana':
-                imageUrl = 'url(/src/assets/italiana.jpg)';
+                imageUrl = 'url(https://i.postimg.cc/QCLxBmZg/italiana.jpg)';
                 break;
             case 'china':
-                imageUrl = 'url(/src/assets/china.jpg)';
+                imageUrl = 'url(https://i.postimg.cc/8chkLvT2/china.jpg)';
                 break;
             case 'mediterránea':
-                imageUrl = 'url(/src/assets/mediterranea.jpg)';
+                imageUrl = 'url(https://i.postimg.cc/XNFYRR9s/mediterranea.jpg)';
                 break;
             case 'japonesa':
-                imageUrl = 'url(/src/assets/ramen.jpg)';
+                imageUrl = 'url(https://i.postimg.cc/jdbStMXt/ramen.jpg)';
                 break;
             case 'all':
-                imageUrl = 'url(/src/assets/all.jpg)';
+                imageUrl = 'url(https://i.postimg.cc/FKBKvmPB/all.jpg)';
                 break;
             case 'no-type':
-                imageUrl = 'url(/src/assets/all.jpg)';
+                imageUrl = 'url(https://i.postimg.cc/FKBKvmPB/all.jpg)';
                 break;
             default:
-                imageUrl = 'url(/src/assets/all.jpg)'
+                imageUrl = 'url(https://i.postimg.cc/FKBKvmPB/all.jpg)'
         }
 
 
@@ -58,13 +58,13 @@ export const Negocio = () => {
 
 
     const fetchData = async () => {
-        const response = await fetch("https://back-atodogas.onrender.com/api/restaurants/" + idNegocio);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/` + idNegocio);
         const { data } = await response.json();
         setBusiness(data)
     }
 
     const deleteBusiness = async () => {
-        const response = await fetch('https://back-atodogas.onrender.com/api/restaurants/' + idNegocio, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/` + idNegocio, {
             method: 'DELETE'
         })
         await response.json();
