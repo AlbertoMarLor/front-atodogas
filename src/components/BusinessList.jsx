@@ -3,11 +3,15 @@ import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ModalForm from './Modal'
 import FormularioNew from './FormularioNew';
+import { Search } from './Search';
+import { Filter } from './Filter';
 
 
 export const BusinessList = () => {
 
     const [restaurants, setRestaurants] = useState([]);
+    const [search, setSearch] = useState("");
+    const [filter, setFilter] = useState("");
 
     let user = {};
     if (localStorage.getItem("atodogasuser") !== null) {
@@ -19,10 +23,15 @@ export const BusinessList = () => {
 
 
     const fetchData = async () => {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants`);
-        const data = await response.json();
-        setRestaurants(data.data)
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/${search}`);
+        const { data } = await response.json();
+        setRestaurants(data)
     }
+
+    const filteredRestaurants = restaurants.filter((restaurant) => {
+        return filter === "" || restaurant.type === filter;
+    })
+
 
     useEffect(() => {
         fetchData();
@@ -40,10 +49,14 @@ export const BusinessList = () => {
                             buttonText={"Nuevo"}
                             formulario={<FormularioNew />}
                         />}
+                    <Search search={search} setSearch={setSearch} fetchData={fetchData} />
+
+                    <Filter setFilter={setFilter} />
 
                     <h2 className='hero-h2'>Restaurantes</h2>
+
                     <div className="article-grid">
-                        {restaurants.map(restaurant => {
+                        {filteredRestaurants.map(restaurant => {
                             return (
 
                                 <Link key={restaurant._id} to={`/negocio/${restaurant._id}`} style={{ textDecoration: 'none' }}>

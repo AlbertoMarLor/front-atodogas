@@ -6,10 +6,13 @@ import { useParams } from 'react-router-dom'
 import FormularioEdit from '../components/FormularioEdit'
 import { Button } from 'react-bootstrap'
 
+
+
 export const Negocio = () => {
 
     const { idNegocio } = useParams();
     const [business, setBusiness] = useState({});
+
 
     useEffect(() => {
         background(business.type);
@@ -25,7 +28,10 @@ export const Negocio = () => {
     }
 
     const background = (type) => {
+
         const backgroundDiv = document.getElementById("backGround");
+
+
         let imageUrl;
 
         switch (type) {
@@ -58,9 +64,10 @@ export const Negocio = () => {
 
 
     const fetchData = async () => {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/` + idNegocio);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/one/` + idNegocio);
         const { data } = await response.json();
         setBusiness(data)
+
     }
 
     const deleteBusiness = async () => {
@@ -68,16 +75,19 @@ export const Negocio = () => {
             method: 'DELETE'
         })
         await response.json();
-        //TODO no va el delete, a saber por que
+
     }
 
     useEffect(() => {
         fetchData();
+
     }, [])
 
     return (
         <div>
             <div className='hero-business' id='backGround'>
+
+
                 <h2>{business.nombre}</h2>
                 <p>
                     {
@@ -89,35 +99,38 @@ export const Negocio = () => {
 
                 </p>
             </div>
+            {business && business.menu &&
+                <div>
 
-            <div className="business-grid">
-                <div className="business-img">
-                    <img src={business.img} alt="Tanuki San Japones imagen" />
+                    <div className="business-grid">
+                        <div className="business-img">
+                            <img src={business.img} alt="Tanuki San Japones imagen" />
+                        </div>
+                        <div className="business-menu">
+                            {user.role === 'admin' &&
+                                <ModalForm
+                                    color={"warning"}
+                                    title={"Editar negocio"}
+                                    buttonText={"Editar"}
+                                    formulario={<FormularioEdit business={business} />}
+                                />}
+                            <Menu business={business} />
+                            {user.role === 'admin' &&
+                                <Button
+                                    variant='danger'
+                                    onClick={deleteBusiness}
+                                >
+                                    Eliminar
+                                </Button>
+                            }
+
+                        </div>
+                        <div className="business-schedule"></div>
+                        <Schedule />
+                    </div>
                 </div>
-                <div className="business-menu">
-                    {user.role === 'admin' &&
-                        <ModalForm
-                            color={"warning"}
-                            title={"Editar negocio"}
-                            buttonText={"Editar"}
-                            formulario={<FormularioEdit business={business} />}
-                        />}
 
-                    <Menu />
-                    {user.role === 'admin' &&
-                        <Button
-                            variant='danger'
-                            onClick={deleteBusiness}
-                        >
-                            Eliminar
-                        </Button>
-                    }
-
-                </div>
-                <div className="business-schedule"></div>
-                <Schedule />
-            </div>
-
+            }
         </div>
     )
 }

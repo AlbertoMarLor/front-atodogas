@@ -281,6 +281,22 @@ article img {
     margin-bottom: 30px;
 }
 
+.search {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form-group {
+    width: 70%;
+}
+
+
 @media (min-width: 768px) {
     .article-grid {
         width: 75%;
