@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import ModalForm from './Modal'
+import ModalForm from './ModalForm'
 import FormularioNew from './FormularioNew';
 import { Search } from './Search';
 import { Filter } from './Filter';
@@ -47,7 +47,7 @@ export const BusinessList = () => {
                             color={"success"}
                             title={"Nuevo negocio"}
                             buttonText={"Nuevo"}
-                            formulario={<FormularioNew />}
+                            component={<FormularioNew />}
                         />}
                     <Search search={search} setSearch={setSearch} fetchData={fetchData} />
 

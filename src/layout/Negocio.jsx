@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Menu from '../components/Menu'
 import { Schedule } from '../components/Schedule'
-import ModalForm from '../components/Modal'
+import ModalForm from '../components/ModalForm'
 import { useParams } from 'react-router-dom'
 import FormularioEdit from '../components/FormularioEdit'
 import { Button } from 'react-bootstrap'
@@ -112,7 +112,7 @@ export const Negocio = () => {
                                     color={"warning"}
                                     title={"Editar negocio"}
                                     buttonText={"Editar"}
-                                    formulario={<FormularioEdit business={business} />}
+                                    component={<FormularioEdit business={business} />}
                                 />}
                             <Menu business={business} />
                             {user.role === 'admin' &&

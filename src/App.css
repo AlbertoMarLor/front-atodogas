@@ -10,7 +10,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: rgb(248, 248, 248);
+
 }
 
 
@@ -208,6 +208,7 @@ article img {
     gap: 18px;
     border-bottom: #e0e0e0 1px solid;
     margin-top: 12px;
+    cursor: pointer;
 }
 
 .plato-box {
@@ -296,6 +297,147 @@ article img {
     width: 70%;
 }
 
+.quantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    gap: 30px;
+    border-bottom: #e7e7e7 1px solid;
+    width: 77.5%;
+}
+
+.sum {
+    flex-direction: row;
+    gap: 30px;
+}
+
+.number {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.operator {
+    color: green;
+    font-weight: bolder;
+    font-size: 1.75em;
+}
+
+.total {
+    flex-direction: row;
+    gap: 130px;
+    background-color: rgb(0, 157, 0);
+    color: white;
+    border-radius: 30px;
+    padding: 0px 15px;
+    font-size: 1em;
+    font-weight: bolder;
+    width: 100%;
+    padding-top: 12px;
+
+}
+
+.pedido {
+    width: 70%;
+    margin-left: 10px;
+
+}
+
+.precio {
+    width: 30%;
+    margin-right: 10px;
+}
+
+.quantity-button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #000000;
+    font-weight: bolder;
+    left: 92.5%;
+    top: 10%;
+    z-index: 1;
+    width: 10%;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 0px;
+}
+
+.modalQuantity {
+    top: 70%;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cart.h2 {
+    font-weight: bolder;
+    border-bottom: #dbdbdb 1px solid;
+    width: 100%;
+    box-shadow: 0 4px 6px 0 rgba(27, 35, 36, .02), 0 3px 6px 0 rgba(27, 35, 36, .06);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.cart ul {
+    list-style: none;
+}
+
+.cart .oneProduct {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+
+}
+
+.nameNQuantity {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.nameNQuantity p:first-child {
+    display: flex;
+    font-weight: bolder;
+    background-color: #ededed;
+    border-radius: 50%;
+    width: 25px;
+    justify-content: center;
+}
+
+.cartPrice {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.cart.dirNPhone {
+
+    gap: 10px;
+    margin: 30px;
+}
+
+.direction,
+.phone {
+    display: flex;
+    gap: 15px;
+}
+
+button.quantity.total {
+    border: none;
+
+}
+
+.cart.form {
+    margin: 40px;
+}
 
 @media (min-width: 768px) {
     .article-grid {

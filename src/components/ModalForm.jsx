@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
-function ModalForm({ color, title, buttonText, formulario }) {
+function ModalForm({ color, title, buttonText, component }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -20,7 +20,7 @@ function ModalForm({ color, title, buttonText, formulario }) {
                     <Modal.Title>{title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {formulario}
+                    {component}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
