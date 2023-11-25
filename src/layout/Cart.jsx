@@ -3,11 +3,13 @@ import { useCart } from '../context/cartProvider';
 import { FaRegTrashAlt } from "react-icons/fa";
 import { Button, Form } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const Cart = () => {
     const { cart, dispatch } = useCart();
+    const navigate = useNavigate();
 
 
     let direction = "";
@@ -37,23 +39,30 @@ export const Cart = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         localStorage.setItem("atodogasdir", e.target.direction.value);
+        const direction = localStorage.getItem("atodogasdir");
+
         localStorage.setItem("atodogasphone", e.target.phone.value);
+        const phone = localStorage.getItem("atodogasphone");
 
         const productsString = cart.map(product => (
             `Producto: ${product.name}, Cantidad: ${product.quantity}, Precio: ${product.price}€, Restaurante: ${product.business}`
         )).join('\n');
 
-        const emailBody = `PEDIDO:\n${productsString}\n\nTotal: ${pricesSum.toFixed(2)}€`;
+        const emailBody = `PEDIDO:\n${productsString}\n\nTotal: ${pricesSum.toFixed(2)}€\n\nTeléfono: ${phone}\n\nDirección: ${direction}`;
 
 
-        emailjs.send('service_9hxtqhi', 'template_uoqa23n', { message: emailBody }, "Dy_BmQl6XmwcN6TYe")
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
+        /*  emailjs.send('service_9hxtqhi', 'template_uoqa23n', { message: emailBody }, "Dy_BmQl6XmwcN6TYe")
+             .then((result) => {
+                 console.log(result.text);
+             }, (error) => {
+                 console.log(error.text);
+             }); */
+
+        console.log(emailBody);
 
         clearCart();
+
+        navigate('/done');
     };
 
 

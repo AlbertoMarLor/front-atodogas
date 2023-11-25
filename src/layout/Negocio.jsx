@@ -5,6 +5,7 @@ import ModalForm from '../components/ModalForm'
 import { useParams } from 'react-router-dom'
 import FormularioEdit from '../components/FormularioEdit'
 import { Button } from 'react-bootstrap'
+import { MiniCart } from '../components/MiniCart'
 
 
 
@@ -125,6 +126,7 @@ export const Negocio = () => {
                             }
 
                         </div>
+                        <MiniCart />
                         <div className="business-schedule"></div>
                         <Schedule />
                     </div>

@@ -9,6 +9,8 @@ import { AuthProvider } from '../context/AuthProvider'
 import { Join } from '../layout/Join'
 import { CartProvider } from '../context/cartProvider'
 import { Cart } from '../layout/Cart'
+import { Done } from '../layout/Done'
+import { Footer } from '../layout/Footer'
 
 //TODO ojo aqui otra vez la mierda de las mayusculas y minusculas
 export const Routing = () => {
@@ -25,8 +27,9 @@ export const Routing = () => {
                         <Route path="/login" element={<FormularioLogin />} />
                         <Route path="/join" element={<Join />} />
                         <Route path="/cart" element={<Cart />} />
-
+                        <Route path="/done" element={<Done />} />
                     </Routes>
+                    <Footer />
                 </CartProvider>
             </AuthProvider>
         </BrowserRouter>

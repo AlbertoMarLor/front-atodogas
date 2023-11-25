@@ -46,7 +46,7 @@ function Menu({ business }) {
                                     show={modalStates[menuIndex][dishIndex]}
                                     setShow={() => handleShow(menuIndex, dishIndex)}
                                     handleClose={() => handleClose(menuIndex, dishIndex)}
-                                    component={<Quantity business={business.nombre} id={dish._id} name={dish.name} price={dish.price} />}
+                                    component={<Quantity handleClose={() => handleClose(menuIndex, dishIndex)} business={business.nombre} id={dish._id} name={dish.name} price={dish.price} />}
                                 />
                             </React.Fragment>
                         ))}

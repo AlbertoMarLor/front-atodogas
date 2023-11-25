@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { useCart } from '../context/cartProvider';
 
-//TODO ojo aqui otra vez la mierda de las mayusculas y minusculas
 
-
-export const Quantity = ({ business, id, name, price }) => {
+export const Quantity = ({ business, id, name, price, handleClose }) => {
 
     const [quantity, setQuantity] = useState(1);
 
@@ -32,6 +30,7 @@ export const Quantity = ({ business, id, name, price }) => {
         }
 
         dispatch({ type: 'ADD_PRODUCT', product });
+        handleClose();
     }
 
     return (

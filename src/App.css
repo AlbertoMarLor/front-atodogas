@@ -93,6 +93,7 @@ section {
     align-items: center;
     margin-top: 20%;
     gap: 60px;
+    margin-bottom: 100px;
 }
 
 section h2 {
@@ -366,7 +367,7 @@ article img {
 }
 
 .modalQuantity {
-    top: 70%;
+    top: 69%;
 }
 
 .cart {
@@ -401,6 +402,7 @@ article img {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    width: 200px;
 }
 
 .nameNQuantity p:first-child {
@@ -409,6 +411,7 @@ article img {
     background-color: #ededed;
     border-radius: 50%;
     width: 25px;
+    height: 25px;
     justify-content: center;
 }
 
@@ -416,10 +419,13 @@ article img {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    width: 100px;
 }
 
-.cart.dirNPhone {
 
+
+.cart.dirNPhone {
+    width: 40%;
     gap: 10px;
     margin: 30px;
 }
@@ -431,12 +437,104 @@ article img {
 }
 
 button.quantity.total {
+    margin-top: 25px;
     border: none;
 
 }
 
 .cart.form {
     margin: 40px;
+}
+
+.done {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.great {
+    background-color: rgb(27, 163, 27);
+    border: none;
+    padding: 5px 20px;
+    width: 50%;
+    height: 50px;
+    font-weight: bolder;
+    font-size: 22px;
+    border-radius: 30px;
+
+}
+
+.minicart.show {
+    position: fixed;
+    display: flex;
+    top: 91%;
+    background-color: lightgreen;
+    width: 100vw;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.minicart.hidden {
+    display: none;
+}
+
+.basketIconDiv {
+    font-size: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.basketPrice {
+    margin-top: 17px;
+
+}
+
+.circle {
+    position: absolute;
+    left: 11%;
+    top: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2d2d;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    color: lightgreen;
+    font-size: 10px;
+}
+
+footer {
+    background-color: #e7e7e7;
+    padding: 15px;
+}
+
+footer h2,
+footer h3 {
+    font-size: 18px;
+}
+
+footer p {
+    font-size: 12px;
+}
+
+footer a {
+    font-size: 12px;
+    color: black;
+}
+
+.social {
+    display: flex;
+    gap: 5px;
+    font-size: 19px;
+}
+
+footer .social a {
+    font-size: 17px;
 }
 
 @media (min-width: 768px) {

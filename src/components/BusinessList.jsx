@@ -72,22 +72,6 @@ export const BusinessList = () => {
 
                     </div>
                 </section>
-
-                <section>
-                    <h2>Desavios</h2>
-                    <div className="article-grid">
-                        <article>
-                            <h3>Tanuki San Japones</h3>
-                            <img src="src\assets\tanuki.png" alt="Tanuki San Japones" />
-                            <p>Comida Japonesa</p>
-                        </article>
-                        <article>
-                            <h3>Paellamar</h3>
-                            <img src="src\assets\tanuki.png" alt="Tanuki San Japones" />
-                            <p>Comida Mediterranea</p>
-                        </article>
-                    </div>
-                </section>
             </Container >
         </>
     )
