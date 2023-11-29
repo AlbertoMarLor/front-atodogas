@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import FormularioEdit from '../components/FormularioEdit'
 import { Button } from 'react-bootstrap'
 import { MiniCart } from '../components/MiniCart'
+import { Footer } from '../layout/Footer'
 
 
 
@@ -133,6 +134,8 @@ export const Negocio = () => {
                 </div>
 
             }
+            <Footer />
+
         </div>
     )
 }

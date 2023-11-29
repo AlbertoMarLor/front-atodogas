@@ -50,15 +50,19 @@ export const Cart = () => {
 
         const emailBody = `PEDIDO:\n${productsString}\n\nTotal: ${pricesSum.toFixed(2)}€\n\nTeléfono: ${phone}\n\nDirección: ${direction}`;
 
+        if (!direction || !phone) {
+            return alert("Debes poner tu dirección y tu número de teléfono")
+        }
 
-        /*  emailjs.send('service_9hxtqhi', 'template_uoqa23n', { message: emailBody }, "Dy_BmQl6XmwcN6TYe")
-             .then((result) => {
-                 console.log(result.text);
-             }, (error) => {
-                 console.log(error.text);
-             }); */
+        emailjs.send('service_9hxtqhi', 'template_uoqa23n', { message: emailBody }, "Dy_BmQl6XmwcN6TYe")
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
 
         console.log(emailBody);
+
 
         clearCart();
 

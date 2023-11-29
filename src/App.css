@@ -256,7 +256,8 @@ article img {
     font-size: 16px;
 }
 
-.schedule p {
+.schedule p,
+span {
     color: var(--primary-color);
     margin: 0;
 }
@@ -283,10 +284,22 @@ article img {
     margin-bottom: 30px;
 }
 
+.filters-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .search {
     display: flex;
     justify-content: end;
     align-items: end;
+    gap: 7.5px;
+}
+
+.glass {
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 
 .search-form {
@@ -297,6 +310,8 @@ article img {
 .search-form-group {
     width: 70%;
 }
+
+
 
 .quantity {
     display: flex;
@@ -325,6 +340,7 @@ article img {
     color: green;
     font-weight: bolder;
     font-size: 1.75em;
+    cursor: pointer;
 }
 
 .total {
@@ -338,6 +354,7 @@ article img {
     font-weight: bolder;
     width: 100%;
     padding-top: 12px;
+    cursor: pointer;
 
 }
 
@@ -361,9 +378,14 @@ article img {
     top: 10%;
     z-index: 1;
     width: 10%;
-    border-radius: 50%;
+    border-radius: 100%;
     background-color: transparent;
     border: 0px;
+}
+
+.quantity-button:hover {
+    background-color: green;
+    color: black;
 }
 
 .modalQuantity {
@@ -509,8 +531,12 @@ button.quantity.total {
 }
 
 footer {
+
     background-color: #e7e7e7;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 footer h2,
@@ -565,6 +591,10 @@ footer .social a {
     .schedule {
         margin: 30px;
     }
+
+    .circle {
+        left: 6%;
+    }
 }
 
 @media (min-width: 960px) {
@@ -578,6 +608,15 @@ footer .social a {
 
     .hero-business {
         background-position: 10%;
+    }
+
+    .filters-grid {
+        flex-direction: row;
+        gap: 150px;
+    }
+
+    .circle {
+        left: 5%;
     }
 }
 
@@ -593,6 +632,8 @@ footer .social a {
     .schedule {
         margin: 30px 50px;
     }
+
+
 
 }
 
@@ -638,6 +679,9 @@ footer .social a {
         width: 1000px;
     }
 
+    .circle {
+        left: 4%;
+    }
 }
 
 @media (min-width: 1920px) {
@@ -680,5 +724,45 @@ footer .social a {
     #basic-navbar-nav {
         width: 1000px;
     }
+
+    .filters-grid {
+        gap: 700px;
+    }
+
+    .total {
+        gap: 220px;
+    }
+
+    .minicart.show {
+        height: 90px;
+    }
+
+    .circle {
+        left: 2.5%;
+        top: 30%;
+    }
+
+    .envio {
+        margin-top: 100px;
+    }
+
+    .cart .oneProduct {
+        width: 55vw;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    footer h3 {
+        margin-top: 15px;
+    }
+
+    .footer.phone {
+        margin-top: 20px;
+    }
+
+
 
 }

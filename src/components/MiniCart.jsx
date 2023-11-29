@@ -14,18 +14,26 @@ export const MiniCart = () => {
         setProducts(cart)
     }, [cart])
 
+    const handleClick = () => {
+        let user = localStorage.getItem('atodogasuser')
+        if (!user) {
+            return navigate('/login')
+        }
+        navigate('/cart')
+    }
 
-    const pricesSum = products.reduce((sum, product) => sum + parseFloat(product.price), 0) + 3
+    let pricesSum = products.reduce((sum, product) => sum + parseFloat(product.price), 0) + 3
+
     const productsLength = products.reduce((sum, product) => sum + parseFloat(product.quantity), 0)
 
 
     return (
-        <div className={products.length > 0 ? "minicart show" : "minicart hidden"} onClick={() => navigate('/cart')}>
+        <div className={products.length > 0 ? "minicart show" : "minicart hidden"} onClick={handleClick}>
             <div className="basketIconDiv">
                 <FaShoppingBasket />
             </div>
             <div className="basketPrice">
-                <strong>{pricesSum}€</strong>
+                <strong>{pricesSum.toFixed(2)}€</strong>
                 <p>Ir al pedido</p>
             </div>
             <div className="circle">

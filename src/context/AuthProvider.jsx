@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         authUser();
+
     }, []);
 
     const authUser = async () => {

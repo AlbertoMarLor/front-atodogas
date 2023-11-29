@@ -12,6 +12,7 @@ function ModalQuantity({ component, show, handleClose }) {
                 <Button
                     className='quantity-button'
                     onClick={handleClose}
+
                 >X</Button>
                 <Modal.Body>{component}</Modal.Body>
 

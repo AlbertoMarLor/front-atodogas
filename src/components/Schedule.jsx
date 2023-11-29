@@ -3,7 +3,11 @@ import React from 'react'
 export const Schedule = () => {
     return (
         <div className='schedule'>
-            <h3>Horario</h3>
+            <h3>Horario Pedidos</h3>
+            <div className="days">
+                <h4>Todos los dias, de <span>12:30</span> a <span>00:30</span></h4>
+            </div>
+            <h3>Horario Restaurante</h3>
             <div className="days">
                 <h4>Lunes</h4>
                 <p>12:00-16:30</p>

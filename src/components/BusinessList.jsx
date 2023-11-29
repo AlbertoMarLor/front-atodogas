@@ -5,6 +5,7 @@ import ModalForm from './ModalForm'
 import FormularioNew from './FormularioNew';
 import { Search } from './Search';
 import { Filter } from './Filter';
+import { Footer } from '../layout/Footer'
 
 
 export const BusinessList = () => {
@@ -12,6 +13,7 @@ export const BusinessList = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("");
+    const [noResults, setNoResults] = useState(false);
 
     let user = {};
     if (localStorage.getItem("atodogasuser") !== null) {
@@ -25,7 +27,8 @@ export const BusinessList = () => {
     const fetchData = async () => {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/${search}`);
         const { data } = await response.json();
-        setRestaurants(data)
+        setRestaurants(data);
+        setNoResults(data.length === 0);
     }
 
     const filteredRestaurants = restaurants.filter((restaurant) => {
@@ -35,7 +38,7 @@ export const BusinessList = () => {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [search, filter])
 
 
     return (
@@ -49,11 +52,15 @@ export const BusinessList = () => {
                             buttonText={"Nuevo"}
                             component={<FormularioNew />}
                         />}
-                    <Search search={search} setSearch={setSearch} fetchData={fetchData} />
+                    <div className="filters-grid">
+                        <Search search={search} setSearch={setSearch} fetchData={fetchData} />
+                        <Filter setFilter={setFilter} />
 
-                    <Filter setFilter={setFilter} />
+                    </div>
 
                     <h2 className='hero-h2'>Restaurantes</h2>
+
+                    {noResults && <p>No tenemos restaurantes con ese nombre</p>}
 
                     <div className="article-grid">
                         {filteredRestaurants.map(restaurant => {
@@ -73,6 +80,7 @@ export const BusinessList = () => {
                     </div>
                 </section>
             </Container >
+            <Footer />
         </>
     )
 }
