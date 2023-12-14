@@ -10,7 +10,7 @@ export const Done = () => {
     return (
         <div className='done'>
             <h2>¡Tu pedido ha sido realizado!</h2>
-            <p>En breves te llegará a la dirección que hayas indicado. Si tienes cualquier problema puedes llamar a 664320649</p>
+            <p>En breves te llegará a la dirección que hayas indicado. Si tienes cualquier problema puedes llamar a 603392557</p>
             <Button onClick={() => navigate('/home')} className='great'>¡Genial!</Button>
         </div>
     )

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Menu from '../components/Menu'
 import { Schedule } from '../components/Schedule'
 import ModalForm from '../components/ModalForm'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import FormularioEdit from '../components/FormularioEdit'
 import { Button } from 'react-bootstrap'
 import { MiniCart } from '../components/MiniCart'
 import { Footer } from '../layout/Footer'
+import { FaArrowLeft } from "react-icons/fa6";
+import Swal from 'sweetalert2'
 
 
 
@@ -14,7 +16,7 @@ export const Negocio = () => {
 
     const { idNegocio } = useParams();
     const [business, setBusiness] = useState({});
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         background(business.type);
@@ -37,17 +39,17 @@ export const Negocio = () => {
         let imageUrl;
 
         switch (type) {
-            case 'italiana':
-                imageUrl = 'url(https://i.postimg.cc/QCLxBmZg/italiana.jpg)';
+            case 'pizzeria':
+                imageUrl = 'url(https://i.postimg.cc/KvHprFZB/pizzeria.jpg)';
                 break;
-            case 'china':
-                imageUrl = 'url(https://i.postimg.cc/8chkLvT2/china.jpg)';
+            case 'burger':
+                imageUrl = 'url(https://i.postimg.cc/9FZ1T9n5/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg)';
                 break;
-            case 'mediterránea':
-                imageUrl = 'url(https://i.postimg.cc/XNFYRR9s/mediterranea.jpg)';
+            case 'polleria':
+                imageUrl = 'url(https://i.postimg.cc/qvgRScVW/pollo-asado-citricos-1920.webp)';
                 break;
-            case 'japonesa':
-                imageUrl = 'url(https://i.postimg.cc/jdbStMXt/ramen.jpg)';
+            case 'kebab':
+                imageUrl = 'url(https://i.postimg.cc/D0mHnzvf/kebab.webp)';
                 break;
             case 'all':
                 imageUrl = 'url(https://i.postimg.cc/FKBKvmPB/all.jpg)';
@@ -73,11 +75,33 @@ export const Negocio = () => {
     }
 
     const deleteBusiness = async () => {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/` + idNegocio, {
-            method: 'DELETE'
-        })
-        await response.json();
 
+        Swal.fire({
+            title: "¿Borrar restaurante?",
+            text: "¡Esto es irreversible!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#1e9522",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sí, bórralo"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Eliminado",
+                    text: "El restaurante ha sido eliminado",
+                    icon: "success"
+                });
+
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/restaurants/` + idNegocio, {
+                    method: 'DELETE'
+                })
+                await response.json();
+
+            }
+            else {
+                return;
+            }
+        });
     }
 
     useEffect(() => {
@@ -91,45 +115,43 @@ export const Negocio = () => {
 
 
                 <h2>{business.nombre}</h2>
-                <p>
-                    {
-                        (business.type === 'all' || business.type === 'no-type') ?
-                            ''
-                            :
-                            `Comida ${business.type}`
-                    }
 
-                </p>
             </div>
+
+            <FaArrowLeft className='leftArrow' onClick={() => { navigate('/home') }} />
+
             {business && business.menu &&
                 <div>
 
                     <div className="business-grid">
                         <div className="business-img">
-                            <img src={business.img} alt="Tanuki San Japones imagen" />
+                            <img src={business.img} alt={business.nombre} />
                         </div>
                         <div className="business-menu">
                             {user.role === 'admin' &&
                                 <ModalForm
                                     color={"warning"}
                                     title={"Editar negocio"}
-                                    buttonText={"Editar"}
+                                    buttonText={"Editar menús/platos"}
                                     component={<FormularioEdit business={business} />}
                                 />}
+
                             <Menu business={business} />
                             {user.role === 'admin' &&
                                 <Button
                                     variant='danger'
                                     onClick={deleteBusiness}
+                                    style={{ marginBottom: "30px" }}
                                 >
-                                    Eliminar
+                                    Eliminar restaurante
                                 </Button>
                             }
 
                         </div>
                         <MiniCart />
-                        <div className="business-schedule"></div>
-                        <Schedule />
+                        <div className="business-schedule">
+                            <Schedule idNegocio={idNegocio} user={user} />
+                        </div>
                     </div>
                 </div>
 

@@ -60,6 +60,9 @@ export const BusinessList = () => {
 
                     <h2 className='hero-h2'>Restaurantes</h2>
 
+                    <h3 style={{ color: "grey", fontSize: "14px", marginBottom: "-30px" }}>Todos los pagos se realizan en efectivo al repartidor</h3>
+                    <h3 style={{ color: "grey", fontSize: "14px" }}>Solo envíos a Lepe, Cartaya, Islantilla, La Antilla y Urbasur</h3>
+
                     {noResults && <p>No tenemos restaurantes con ese nombre</p>}
 
                     <div className="article-grid">
@@ -70,7 +73,7 @@ export const BusinessList = () => {
                                     <article>
                                         <h3>{restaurant.nombre}</h3>
                                         <img src={restaurant.img} alt={restaurant.nombre} />
-                                        <p>Comida Japonesa</p>
+                                        <p>{restaurant.type.toUpperCase()}</p>
                                     </article>
                                 </Link>
                             )

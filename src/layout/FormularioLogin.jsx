@@ -60,7 +60,7 @@ export const FormularioLogin = () => {
                         Iniciar sesión
                     </Button>
                 </Form>
-                <p>No estoy registrado <Link>Registrarse</Link> </p>
+                <p>No estoy registrado <Link to={"/register"}>Registrarse</Link> </p>
             </div>
         </Container>
     );

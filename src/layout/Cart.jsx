@@ -4,7 +4,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { Button, Form } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
-
+import { FaArrowLeft } from "react-icons/fa6";
 
 
 export const Cart = () => {
@@ -44,11 +44,13 @@ export const Cart = () => {
         localStorage.setItem("atodogasphone", e.target.phone.value);
         const phone = localStorage.getItem("atodogasphone");
 
+        const comments = e.target.comments.value;
+
         const productsString = cart.map(product => (
             `Producto: ${product.name}, Cantidad: ${product.quantity}, Precio: ${product.price}€, Restaurante: ${product.business}`
         )).join('\n');
 
-        const emailBody = `PEDIDO:\n${productsString}\n\nTotal: ${pricesSum.toFixed(2)}€\n\nTeléfono: ${phone}\n\nDirección: ${direction}`;
+        const emailBody = `PEDIDO:\n${productsString}\n\nTotal: ${pricesSum.toFixed(2)}€\n\nTeléfono: ${phone}\n\nDirección: ${direction}\n\nComentarios: ${comments}`;
 
         if (!direction || !phone) {
             return alert("Debes poner tu dirección y tu número de teléfono")
@@ -75,6 +77,9 @@ export const Cart = () => {
             <div className="cart h2">
                 <h3>Tu pedido</h3>
             </div>
+
+            <FaArrowLeft className='cart leftArrow' onClick={() => history.back()} />
+
             {cart.map((product) => (
                 <div className='oneProduct' key={product.id}>
                     <div className="nameNQuantity">
@@ -89,18 +94,23 @@ export const Cart = () => {
                 </div>
             ))}
             <div className="envio">
-                <strong>+ 3€ transporte a domicilio</strong>
+                <strong >+ 3€ transporte a domicilio. Todos los pagos en efectivo al repartidor</strong>
             </div>
 
 
             <Form className='cart form' onSubmit={sendEmail}>
                 <Form.Group className="mb-3" >
-                    <Form.Label>Tu dirección</Form.Label>
-                    <Form.Control defaultValue={direction} placeholder='C/Perdiz n9' type="text" name='direction' />
+                    <Form.Label>Tu dirección*</Form.Label>
+                    <Form.Control defaultValue={direction} placeholder='¿Donde te lo llevamos?' type="text" name='direction' />
                 </Form.Group>
                 <Form.Group className="mb-3" >
-                    <Form.Label>Tu teléfono</Form.Label>
-                    <Form.Control defaultValue={phone} placeholder='664320649' type="text" name='phone' />
+                    <Form.Label>Tu teléfono*</Form.Label>
+                    <Form.Control defaultValue={phone} placeholder='603392557' type="text" name='phone' />
+                </Form.Group>
+                <small>*No nos quedamos con los datos de tu teléfono ni tu dirección, sólo con tu correo</small>
+                <Form.Group className="mb-3" >
+                    <Form.Label >Comentarios</Form.Label>
+                    <Form.Control style={{ width: "225px" }} as={"textarea"} placeholder='¿Algo que necesitemos saber del pedido?' type="text" name='comments' />
                 </Form.Group>
 
 

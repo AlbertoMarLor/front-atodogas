@@ -30,7 +30,7 @@ export const Header = () => {
         <div>
             <header>
                 <Container>
-                    <Navbar expand="lg" className="navbar navbar-expand-lg navbar-light shadow-5-strong">
+                    <Navbar bsPrefix='header navbar' expand="lg" className="navbar navbar-expand-lg navbar-light shadow-5-strong">
                         <Link to={'/home'}>  <Navbar.Brand className='logo-div' > <img className='logo' src="https://i.postimg.cc/rFyt6XqF/logo2.png" alt="atodogas logo" />
                         </Navbar.Brand>
                         </Link>
@@ -40,17 +40,23 @@ export const Header = () => {
 
                                 {user ? (
                                     <>
+
                                         <Nav.Link as={Link} className='header-text' to={'/register'} >Hola {user.username}</Nav.Link>
                                         <Nav.Link className='header-text' onClick={logout} >Cerrar sesión</Nav.Link>
+
+
                                     </>
                                 ) :
                                     (<>
+
                                         <Nav.Link as={Link} className='header-text' to={'/register'} >REGISTRARSE</Nav.Link>
                                         <Nav.Link as={Link} className='header-text' to={'/login'}>INICIAR SESIÓN</Nav.Link>
+
+
                                     </>
                                     )
                                 }
-                                <Nav.Link className='header-text'><FaPhoneAlt style={{ marginRight: "5px" }}></FaPhoneAlt>664320649</Nav.Link>
+                                <Nav.Link className='header-text'><FaPhoneAlt style={{ marginRight: "5px" }}></FaPhoneAlt>603392557</Nav.Link>
 
 
                             </Nav>

@@ -6,12 +6,14 @@ import Button from 'react-bootstrap/Button';
 
 import { Link, useNavigate } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
+import useAuth from '../hooks/useAuth';
 
 
 
 export const FormularioRegister = () => {
 
     const navigate = useNavigate();
+    const { setAuth } = useAuth();
 
     const formik = useFormik({
         initialValues: {
@@ -45,7 +47,7 @@ export const FormularioRegister = () => {
 
                 setAuth(data.user)
 
-                navigate('/home') //TODO este navigate no funciona, a saber porque
+                navigate('/home')
             }
 
         }

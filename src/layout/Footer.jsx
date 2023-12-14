@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaInstagram, FaTiktok, FaFacebook, FaPhoneAlt } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { FaPhone } from 'react-icons/fa'
+
 
 
 export const Footer = () => {
@@ -29,7 +29,7 @@ export const Footer = () => {
                 <h3>Contacto</h3>
                 <div className='footer phone'>
                     <FaPhoneAlt></FaPhoneAlt>
-                    <strong>664320649</strong>
+                    <strong>603392557</strong>
                 </div>
                 <a target='_blank' href="mailto:atodogaslepe@gmail.com"> <SiGmail /> atodogaslepe@gmail.com</a>
 
@@ -37,6 +37,7 @@ export const Footer = () => {
             <div >
                 <h3>Horario pedidos</h3>
                 <p>Todos los días, de <b>12:30</b> a <b>00:30</b></p>
+                <p>Todos los pagos se realizan al repartidor</p>
             </div>
         </footer>
     )

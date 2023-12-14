@@ -36,6 +36,7 @@ function Menu({ business }) {
                                     <div onClick={() => handleShow(menuIndex, dishIndex)} className="box">
                                         <div className="plato-box">
                                             <p className='plato'>{dish.name}</p>
+                                            {dish.ingredients && (<p className="ingredients">{dish.ingredients}</p>)}
                                         </div>
                                         {dish.price && (
                                             <p className='price'>{dish.price} €</p>

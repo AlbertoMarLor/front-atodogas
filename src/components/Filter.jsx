@@ -8,10 +8,10 @@ export const Filter = ({ setFilter }) => {
             <Form.Select onChange={(e) => setFilter(e.target.value)}>
                 <option value="">Tipo de comida</option>
                 <option value="">Todos</option>
-                <option value="mediterranea">Mediterránea</option>
-                <option value="china">China</option>
-                <option value="japonesa">Japonesa</option>
-                <option value="italiana">Italiana</option>
+                <option value="pizzeria">Pizzería</option>
+                <option value="burger">Burger</option>
+                <option value="polleria">Pollería</option>
+                <option value="kebab">Kebab</option>
             </Form.Select>
         </div>
     )
