@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import ModalForm from './ModalForm'
 import FormularioNew from './FormularioNew';
 import { Search } from './Search';
-import { Filter } from './Filter';
+/* import { Filter } from './Filter'; */
 import { Footer } from '../layout/Footer'
 
 
@@ -12,7 +12,7 @@ export const BusinessList = () => {
 
     const [restaurants, setRestaurants] = useState([]);
     const [search, setSearch] = useState("");
-    const [filter, setFilter] = useState("");
+    /* const [filter, setFilter] = useState(""); */
     const [noResults, setNoResults] = useState(false);
 
     let user = {};
@@ -31,14 +31,14 @@ export const BusinessList = () => {
         setNoResults(data.length === 0);
     }
 
-    const filteredRestaurants = restaurants.filter((restaurant) => {
-        return filter === "" || restaurant.type === filter;
-    })
+    /*  const filteredRestaurants = restaurants.filter((restaurant) => {
+         return filter === "" || restaurant.type === filter;
+     }) */
 
 
     useEffect(() => {
         fetchData();
-    }, [search, filter])
+    }, [search])
 
 
     return (
@@ -54,7 +54,7 @@ export const BusinessList = () => {
                         />}
                     <div className="filters-grid">
                         <Search search={search} setSearch={setSearch} fetchData={fetchData} />
-                        <Filter setFilter={setFilter} />
+                        {/*     <Filter setFilter={setFilter} /> */}
 
                     </div>
 
@@ -66,7 +66,7 @@ export const BusinessList = () => {
                     {noResults && <p>No tenemos restaurantes con ese nombre</p>}
 
                     <div className="article-grid">
-                        {filteredRestaurants.map(restaurant => {
+                        {restaurants.map(restaurant => {
                             return (
 
                                 <Link key={restaurant._id} to={`/negocio/${restaurant._id}`} style={{ textDecoration: 'none' }}>
