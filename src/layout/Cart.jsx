@@ -63,8 +63,6 @@ export const Cart = () => {
                 console.log(error.text);
             });
 
-        console.log(emailBody);
-
 
         clearCart();
 

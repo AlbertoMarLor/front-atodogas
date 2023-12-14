@@ -17,7 +17,7 @@ export const MiniCart = () => {
     const handleClick = () => {
         let user = localStorage.getItem('atodogasuser')
         if (!user) {
-            return navigate('/login')
+            return navigate('/register')
         }
         navigate('/cart')
     }

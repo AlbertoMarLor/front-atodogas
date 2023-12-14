@@ -56,7 +56,7 @@ export const Header = () => {
                                     </>
                                     )
                                 }
-                                <Nav.Link className='header-text'><FaPhoneAlt style={{ marginRight: "5px" }}></FaPhoneAlt>603392557</Nav.Link>
+                                <Nav.Link className='header-text phone'><FaPhoneAlt style={{ marginRight: "-5px" }} ></FaPhoneAlt>603392557</Nav.Link>
 
 
                             </Nav>

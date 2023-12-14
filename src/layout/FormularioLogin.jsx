@@ -2,11 +2,10 @@ import React from 'react';
 import { useFormik } from 'formik';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
-
 import { Link, useNavigate } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
 import useAuth from '../hooks/useAuth';
+import { useCart } from '../context/cartProvider';
 
 
 
@@ -14,6 +13,7 @@ export const FormularioLogin = () => {
 
     const navigate = useNavigate();
     const { setAuth } = useAuth();
+    const { cart } = useCart();
 
     const formik = useFormik({
         initialValues: {
@@ -37,6 +37,9 @@ export const FormularioLogin = () => {
 
                 setAuth(data.user)
 
+                if (cart.length > 0) {
+                    return navigate('/cart')
+                }
                 navigate('/home')
             }
         }
