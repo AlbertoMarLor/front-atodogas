@@ -475,6 +475,7 @@ span {
 }
 
 button.quantity.total {
+    height: 60px;
     margin-top: 25px;
     border: none;
 
@@ -667,6 +668,10 @@ small {
 
     .cart.leftArrow {
         left: -325px;
+    }
+
+    button.quantity.total {
+        width: 350px;
     }
 
     footer {
@@ -870,6 +875,10 @@ small {
 
     .envio {
         margin-top: 100px;
+    }
+
+    button.quantity.total {
+        width: 450px;
     }
 
     .cart .oneProduct {
