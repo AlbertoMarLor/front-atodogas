@@ -328,6 +328,7 @@ span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 225px;
 }
 
 .text {
@@ -404,7 +405,7 @@ span {
 }
 
 .modalQuantity {
-    top: 69%;
+    top: 65%;
 }
 
 .cart {
@@ -911,5 +912,9 @@ small {
 
     small {
         width: 200px;
+    }
+
+    .modalQuantity {
+        top: 70%;
     }
 }
